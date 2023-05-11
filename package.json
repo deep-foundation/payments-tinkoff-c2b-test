@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "fetch": "rm -f ./deep.json && npm install @deep-foundation/payments-tinkoff-c2b-test@latest --no-save && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/deep.json ./"
+    "fetch": "npm install @deep-foundation/payments-tinkoff-c2b-test@latest --no-save && (if [ -f ./node_modules/@deep-foundation/payments-tinkoff-c2b-test/deep.json ]; then rm -f ./deep.json; fi;) && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/deep.json ./"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
