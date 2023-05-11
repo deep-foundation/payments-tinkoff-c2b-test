@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "fetch": "npm install @deep-foundation/payments-tinkoff-c2b-test@latest && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/**/* ./npm uninstall @deep-foundation/payments-tinkoff-c2b-test"
+    "fetch": "npm install @deep-foundation/payments-tinkoff-c2b-test@latest --no-save && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/**/* ./npm uninstall @deep-foundation/payments-tinkoff-c2b-test"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
