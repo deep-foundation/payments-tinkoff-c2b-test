@@ -1,0 +1,32 @@
+{
+  "name": "@deep-foundation/payments-tinkoff-c2b-test",
+  "keywords": [
+    "deep-package"
+  ],
+  "version": "0.2.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-foundation/payments-tinkoff-c2b-test"
+  },
+  "scripts": {
+    "build": "tsc",
+    "fetch": "npm install @deep-foundation/payments-tinkoff-c2b-test@latest && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/**/* ./npm uninstall @deep-foundation/payments-tinkoff-c2b-test"
+  },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "@deep-foundation/core": "^0.0.2",
+    "@freephoenix888/test": "^0.0.3",
+    "delay": "^5.0.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "@deep-foundation/deeplinks": "^0.0.146"
+  }
+}
