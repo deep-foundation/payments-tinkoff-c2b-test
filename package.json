@@ -15,6 +15,14 @@
     "@deep-foundation/core": "^0.0.2",
     "@deep-foundation/payments-tinkoff-c2b": "^0.0.16",
     "@freephoenix888/dependency": "^0.0.1",
-    "@freephoenix888/test": "^0.0.3"
+    "@freephoenix888/test": "^0.0.3",
+    "delay": "^5.0.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "@deep-foundation/deeplinks": "^0.0.146"
   }
 }
