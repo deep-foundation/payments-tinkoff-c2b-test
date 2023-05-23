@@ -3,7 +3,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "0.4.9",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/payments-tinkoff-c2b-test"
