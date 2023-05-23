@@ -9,9 +9,7 @@
     "url": "https://github.com/deep-foundation/payments-tinkoff-c2b-test"
   },
   "scripts": {
-    "fetch": "npm run fetch-package-json && npm run fetch-deep-json",
-    "fetch-package-json": "npm install @deep-foundation/payments-tinkoff-c2b-test@latest --no-save && (if [ -f ./node_modules/@deep-foundation/payments-tinkoff-c2b-test/package.json ]; then rm -f ./package.json; fi;) && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/package.json ./",
-    "fetch-deep-json": "npm install @deep-foundation/payments-tinkoff-c2b-test@latest --no-save && (if [ -f ./node_modules/@deep-foundation/payments-tinkoff-c2b-test/deep.json ]; then rm -f ./deep.json; fi;) && mv node_modules/@deep-foundation/payments-tinkoff-c2b-test/deep.json ./"
+    "npm-pull": "(git diff --quiet || (echo 'You have unstaged changes. Stash them (git stash) or commit them (git commit)'; exit 1)) && npm install ${npm_package_name}@latest --no-save && mv --force node_modules/${npm_package_name}/* ./"
   },
   "dependencies": {
     "@deep-foundation/core": "^0.0.2",
