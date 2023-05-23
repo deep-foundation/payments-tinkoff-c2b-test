@@ -12,6 +12,10 @@
     "npm-pull": "(git diff --quiet || (echo 'You have unstaged changes. Stash them (git stash) or commit them (git commit)'; exit 1)) && npm install ${npm_package_name}@latest --no-save && mv --force node_modules/${npm_package_name}/* ./",
     "build": "tsc"
   },
+  "files": [
+    "dist",
+    "deep.json"
+  ],
   "dependencies": {
     "@deep-foundation/core": "^0.0.2",
     "@deep-foundation/payments-tinkoff-c2b": "^0.0.16",
