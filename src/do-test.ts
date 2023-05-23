@@ -6,8 +6,9 @@ import { insertTerminalPassword,InsertTerminalPasswordArg  } from './insert-term
 import { insertDoTest, InsertDoTestArg} from './insert-do-test';
 import assert from 'assert';
 import delay from 'delay';
+import { insertNotificationUrl, InsertNotificationUrlParam } from './insert-notification-url';
 
-export type DoTestArg = InsertPortArg & InsertRouteArg & InsertSumArg & InsertTerminalKeyArg & InsertTerminalPasswordArg & InsertDoTestArg & {
+export type DoTestArg = InsertPortArg & InsertRouteArg & InsertSumArg & InsertTerminalKeyArg & InsertTerminalPasswordArg & InsertDoTestArg & InsertNotificationUrlParam & {
   lookingForHandlerResultAttemptsCount?: number,
   lookingForHandlerResultDelayInMs?: number
 }
@@ -24,7 +25,7 @@ export type DoTestArg = InsertPortArg & InsertRouteArg & InsertSumArg & InsertTe
 //   lookingForHandlerResultDelayInMs?: number
 // }) {
   export async function doTest(arg: DoTestArg) {
-  const { deep, port, route, sum, terminalKey, terminalPassword, containerLinkId = deep.linkId, lookingForHandlerResultAttemptsCount = 10, lookingForHandlerResultDelayInMs = 1000 } = arg;
+  const { deep, port, route, sum, terminalKey, terminalPassword, containerLinkId = deep.linkId, lookingForHandlerResultAttemptsCount = 10, lookingForHandlerResultDelayInMs = 1000 ,notificationUrl} = arg;
   await insertTerminalKey({
     deep,
     containerLinkId,
@@ -53,6 +54,13 @@ export type DoTestArg = InsertPortArg & InsertRouteArg & InsertSumArg & InsertTe
     deep,
     containerLinkId,
     route,
+  });
+
+
+  await insertNotificationUrl({
+    deep,
+    containerLinkId,
+    notificationUrl
   });
 
   const {
