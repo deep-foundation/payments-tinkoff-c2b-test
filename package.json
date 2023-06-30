@@ -27,6 +27,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@deep-foundation/npm-automation": "^3.0.6",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
