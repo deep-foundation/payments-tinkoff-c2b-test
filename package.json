@@ -9,7 +9,9 @@
     "url": "https://github.com/deep-foundation/payments-tinkoff-c2b-test"
   },
   "scripts": {
-    "npm-pull": "(git diff --quiet || (echo 'You have unstaged changes. Stash them (git stash) or commit them (git commit)'; exit 1)) && npm install ${npm_package_name}@latest --no-save && mv --force node_modules/${npm_package_name}/* ./",
+    "npm-pull": "npm-pull",
+    "npm-release": "npm-release",
+    "npm-install": "npm-install",
     "build": "tsc"
   },
   "main": "dist/main.js",
@@ -27,7 +29,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@deep-foundation/npm-automation": "^3.0.6",
+    "@deep-foundation/npm-automation": "^3.0.7",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
