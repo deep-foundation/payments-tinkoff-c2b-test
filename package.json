@@ -3,7 +3,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "0.7.1",
+  "version": "0.7.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/payments-tinkoff-c2b-test"
@@ -21,10 +21,10 @@
     "deep.json"
   ],
   "dependencies": {
-    "@deep-foundation/core": "^0.0.2",
-    "@deep-foundation/payments-tinkoff-c2b": "^0.0.16",
-    "@freephoenix888/dependency": "^0.0.1",
-    "@freephoenix888/test": "^0.0.3",
+    "@deep-foundation/core": "~0.0.2",
+    "@deep-foundation/payments-tinkoff-c2b": "~0.0.16",
+    "@freephoenix888/dependency": "~0.0.1",
+    "@freephoenix888/test": "~0.0.3",
     "delay": "^5.0.0",
     "lodash": "^4.17.21"
   },
