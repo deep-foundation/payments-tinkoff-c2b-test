@@ -29,10 +29,10 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@deep-foundation/npm-automation": "^3.0.7",
+    "@deep-foundation/npm-automation": "^11.1.0",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "@deep-foundation/deeplinks": "^0.0.146"
+    "@deep-foundation/deeplinks": "^0.0.259"
   }
 }
