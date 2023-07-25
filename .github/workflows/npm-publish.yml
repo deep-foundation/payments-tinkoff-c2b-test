@@ -15,20 +15,7 @@ jobs:
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
     with:
-      build-command: |
-        npm run build
-
-        git config --global user.name 'FreePhoenix888'
-        git config --global user.email 'freephoenix888@gmail.com'
-
-        git add ./src/package.ts
-        if git diff --staged --quiet
-        then
-          echo "No changes to commit"
-        else
-          git commit -m 'Generate new package class'
-          git push origin main
-        fi
+      build-command: "npm run library:build:dirty"
       test-command: "echo 'Tests are temporarily disabled'"
       should-generate-documentation: true
       generate-documentation-command: "npm run documentation:generate"
