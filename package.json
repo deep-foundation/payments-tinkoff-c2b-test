@@ -34,7 +34,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@deep-foundation/npm-automation": "^13.0.2",
+    "@deep-foundation/npm-automation": "^18.1.1",
     "typescript": "^5.0.4",
     "@atao60/fse-cli": "^0.1.7",
     "@capacitor/cli": "^5.0.0",
