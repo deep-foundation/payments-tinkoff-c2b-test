@@ -24,7 +24,7 @@ await doTest({
 ## Full example
 ```ts
 import {doTest} from '@deep-foundation/payments-tinkoff-c2b-test'
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { generateApolloClient } from "@deep-foundation/hasura/client";
 
 main();
@@ -71,7 +71,7 @@ async function main() {
 ## Full and ready to use (almost) example
 ```ts
 import {doTest} from '@deep-foundation/payments-tinkoff-c2b-test'
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { generateApolloClient } from "@deep-foundation/hasura/client";
 
 main();
@@ -129,7 +129,7 @@ if [[ -z $GRAPHQL_PATH ]]; then
 fi
 cat << EOF >> src/main.ts
 import {doTest} from '@deep-foundation/payments-tinkoff-c2b-test'
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { generateApolloClient } from "@deep-foundation/hasura/client";
 
 main();

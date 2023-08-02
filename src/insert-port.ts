@@ -1,5 +1,5 @@
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
-import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
+import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql/index.js';
 import { PACKAGE_NAME } from './package-name.js';
 
 export interface InsertPortArg {
