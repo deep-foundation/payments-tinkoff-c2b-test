@@ -1,6 +1,6 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
-import { PACKAGE_NAME } from './package-name';
+import { PACKAGE_NAME } from './package-name.js';
 
 export async function insertNotificationUrl(param: InsertNotificationUrlParam) {
   const { deep, containerLinkId = deep.linkId, notificationUrl } = param;

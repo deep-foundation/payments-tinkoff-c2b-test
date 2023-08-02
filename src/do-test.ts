@@ -1,12 +1,12 @@
-import { insertPort,InsertPortArg } from './insert-port';
-import { insertRoute,InsertRouteArg } from './insert-route';
-import { insertSum, InsertSumArg} from './insert-sum';
-import { insertTerminalKey, InsertTerminalKeyArg } from './insert-terminal-key';
-import { insertTerminalPassword,InsertTerminalPasswordArg  } from './insert-terminal-password';
-import { insertDoTest, InsertDoTestArg} from './insert-do-test';
+import { insertPort,InsertPortArg } from './insert-port.js';
+import { insertRoute,InsertRouteArg } from './insert-route.js';
+import { insertSum, InsertSumArg} from './insert-sum.js';
+import { insertTerminalKey, InsertTerminalKeyArg } from './insert-terminal-key.js';
+import { insertTerminalPassword,InsertTerminalPasswordArg  } from './insert-terminal-password.js';
+import { insertDoTest, InsertDoTestArg} from './insert-do-test.js';
 import assert from 'assert';
 import delay from 'delay';
-import { insertNotificationUrl, InsertNotificationUrlParam } from './insert-notification-url';
+import { insertNotificationUrl, InsertNotificationUrlParam } from './insert-notification-url.js';
 
 export type DoTestArg = InsertPortArg & InsertRouteArg & InsertSumArg & InsertTerminalKeyArg & InsertTerminalPasswordArg & InsertDoTestArg & InsertNotificationUrlParam & {
   lookingForHandlerResultAttemptsCount?: number,
