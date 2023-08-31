@@ -23,6 +23,7 @@ async ({
   const {
     createSerialOperation,
   } = require('@deep-foundation/deeplinks/imports/gql/serial.js');
+  const logs: Array<any> = []
 
   try {
     const result = main()
