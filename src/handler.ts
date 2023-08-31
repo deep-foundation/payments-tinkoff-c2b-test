@@ -232,10 +232,6 @@ async ({
   });
   assert.notEqual(payedLink, undefined);
 
-  async function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
   async function payInBrowser({ page, browser, url }) {
     await page.goto(url, { waitUntil: 'networkidle2' });
     await sleep(5000);
