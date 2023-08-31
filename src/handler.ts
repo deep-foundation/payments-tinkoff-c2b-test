@@ -24,7 +24,21 @@ async ({
     createSerialOperation,
   } = require('@deep-foundation/deeplinks/imports/gql/serial.js');
 
-  await installDependencies();
+  try {
+    const result = main()
+    return {
+      logs,
+      result
+    }
+  } catch (error) {
+    return {
+      error,
+      logs
+    }
+  }
+
+  async function main() {
+    await installDependencies();
 
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
 
@@ -231,6 +245,7 @@ async ({
     },
   });
   assert.notEqual(payedLink, undefined);
+  }
 
   async function payInBrowser({ page, browser, url }) {
     await page.goto(url, { waitUntil: 'networkidle2' });
