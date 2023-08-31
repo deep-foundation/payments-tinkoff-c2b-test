@@ -10,6 +10,9 @@ import { Link, MinilinksResult } from '@deep-foundation/deeplinks/imports/minili
 
 async ({
   deep,
+  data: {
+    triggeredByLinkId
+  }
 }: {
   deep: DeepClient;
   data: { newLink: Link<number>, triggeredByLinkId: number };
@@ -503,9 +506,10 @@ async ({
     });
   }
 
-  async function getStorageBusinessInsertSerialOperationData({
-    storageBusinessLinkId,
+  async function getStorageBusinessInsertSerialOperationData(options: {
+    storageBusinessLinkId: number,
   }) {
+    const {storageBusinessLinkId} = options;
     const storageBusinessTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'StorageBusiness'
@@ -526,9 +530,9 @@ async ({
     });
   }
 
-  async function getTerminalPasswordInsertSerialOperationData({
-    terminalPasswordLinkId,
-    storageBusinessLinkId,
+  async function getTerminalPasswordInsertSerialOperationData(options: {
+    terminalPasswordLinkId: number;
+    storageBusinessLinkId: number;
   }) {
     const terminalPasswordTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
@@ -551,11 +555,15 @@ async ({
       },
     });
   }
-
-  async function getTerminalPasswordValueInsertSerialOperationData({
-    terminalPassword,
-    terminalPasswordLinkId,
+  
+  async function getTerminalPasswordValueInsertSerialOperationData(options: {
+    terminalPassword: string,
+    terminalPasswordLinkId: number;
   }) {
+    const {
+      terminalPassword,
+      terminalPasswordLinkId,
+    } = options
     return createSerialOperation({
       type: 'insert',
       table: 'strings',
@@ -566,10 +574,14 @@ async ({
     });
   }
 
-  async function getUsesTerminalPasswordInsertSerialOperationData({
-    terminalPasswordLinkId,
-    storageBusinessLinkId,
+  async function getUsesTerminalPasswordInsertSerialOperationData(options: {
+    terminalPasswordLinkId: number;
+    storageBusinessLinkId: number;
   }) {
+    const {
+      terminalPasswordLinkId,
+      storageBusinessLinkId,
+    } = options;
     const usesTerminalPasswordTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'UsesTerminalPassword'
@@ -591,10 +603,14 @@ async ({
     });
   }
 
-  async function getTerminalKeyInsertSerialOperationData({
-    terminalKeyLinkId,
-    storageBusinessLinkId,
+  async function getTerminalKeyInsertSerialOperationData(options: {
+    terminalKeyLinkId: number;
+    storageBusinessLinkId: number;
   }) {
+    const {
+      terminalKeyLinkId,
+      storageBusinessLinkId,
+    } = options
     const terminalKeyTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'TerminalKey'
@@ -617,10 +633,14 @@ async ({
     });
   }
 
-  async function getTerminalKeyValueInsertSerialOperationData({
-    terminalKeyLinkId,
-    terminalKey,
+  async function getTerminalKeyValueInsertSerialOperationData(options: {
+    terminalKeyLinkId: number;
+    terminalKey: string;
   }) {
+    const {
+      terminalKeyLinkId,
+      terminalKey,
+    } = options;
     return createSerialOperation({
       type: 'insert',
       table: 'strings',
@@ -631,10 +651,14 @@ async ({
     });
   }
 
-  async function getUsesTerminalKeyInsertSerialOperationData({
-    terminalKeyLinkId,
-    storageBusinessLinkId,
+  async function getUsesTerminalKeyInsertSerialOperationData(options: {
+    terminalKeyLinkId: number;
+    storageBusinessLinkId: number;
   }) {
+    const {
+      terminalKeyLinkId,
+      storageBusinessLinkId,
+    } = options;
     const usesTerminalKeyTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'UsesTerminalKey'
@@ -656,10 +680,14 @@ async ({
     });
   }
 
-  async function getNotificationUrlInsertSerialOperationData({
-    notificationUrlLinkId,
-    storageBusinessLinkId,
+  async function getNotificationUrlInsertSerialOperationData(options: {
+    notificationUrlLinkId: number;
+    storageBusinessLinkId: number;
   }) {
+    const {
+      notificationUrlLinkId,
+      storageBusinessLinkId,
+    } = options
     const notificationUrlTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'NotificationUrl'
@@ -682,10 +710,14 @@ async ({
     });
   }
 
-  async function getNotificationUrlValueInsertSerialOperationData({
-    notificationUrlLinkId,
-    notificationUrl,
+  async function getNotificationUrlValueInsertSerialOperationData(options: {
+    notificationUrlLinkId: number;
+    notificationUrl: URL;
   }) {
+    const {
+      notificationUrlLinkId,
+      notificationUrl,
+    } = options;
     return createSerialOperation({
       type: 'insert',
       table: 'strings',
@@ -696,10 +728,14 @@ async ({
     });
   }
 
-  async function getUsesNotificationUrlInsertSerialOperationData({
-    notificationUrlLinkId,
-    storageBusinessLinkId,
+  async function getUsesNotificationUrlInsertSerialOperationData(options: {
+    notificationUrlLinkId: number;
+    storageBusinessLinkId: number;
   }) {
+    const {
+      notificationUrlLinkId,
+      storageBusinessLinkId,
+    } = options;
     const usesNotificationUrlTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'UsesNotificationUrl'
@@ -721,7 +757,10 @@ async ({
     });
   }
 
-  async function getProductInsertSerialOperationData({ productLinkId }) {
+  async function getProductInsertSerialOperationData(options: {
+    productLinkId: number;
+  }) {
+    const { productLinkId } = options;
     const syncTextFileTypeLinkId = await deep.id(
       '@deep-foundation/core',
       'SyncTextFile'
@@ -802,10 +841,13 @@ async ({
     return terminalPasswordLink;
   }
 
-  async function getPaymentInsertSerialOperationData({
-    paymentLinkId,
-    storageBusinessLinkId,
-  }) {
+  interface GetPaymentInsertSerialOperationDataOptions {
+    paymentLinkId: number;
+    storageBusinessLinkId: number;
+  }
+
+  async function getPaymentInsertSerialOperationData(options: GetPaymentInsertSerialOperationDataOptions) {
+    const { paymentLinkId, storageBusinessLinkId } = options;
     const paymentTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'Payment'
@@ -830,7 +872,13 @@ async ({
     });
   }
 
-  async function getSumInsertSerialOperationData({ sumLinkId, paymentLinkId }) {
+  interface GetSumInsertSerialOperationDataOptions {
+    sumLinkId: number;
+    paymentLinkId: number;
+  }
+
+  async function getSumInsertSerialOperationData(options: GetSumInsertSerialOperationDataOptions) {
+    const { sumLinkId, paymentLinkId } = options;
     const sumTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'Sum'
@@ -855,7 +903,12 @@ async ({
     });
   }
 
-  async function getSumValueInsertSerialOperationData({ sumLinkId, sum }) {
+  interface GetSumValueInsertSerialOperationDataOptions { 
+    sumLinkId: number;
+    sum: number
+   }
+
+  async function getSumValueInsertSerialOperationData(options: GetSumValueInsertSerialOperationDataOptions) {
     return createSerialOperation({
       type: 'insert',
       table: 'numbers',
@@ -866,11 +919,18 @@ async ({
     });
   }
 
-  async function getObjectInsertSerialOperationData({
-    objectLinkId,
-    paymentLinkId,
-    productLinkId,
-  }) {
+  interface GetObjectInsertSerialOperationDataOptions {
+    objectLinkId: number;
+    paymentLinkId: number;
+    productLinkId: number;
+  }
+
+  async function getObjectInsertSerialOperationData(options: GetObjectInsertSerialOperationDataOptions) {
+    const {
+      objectLinkId,
+      paymentLinkId,
+      productLinkId,
+    } = options;
     const objectTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'Object'
@@ -895,7 +955,13 @@ async ({
     });
   }
 
-  async function getPayInsertSerialOperationData({ payLinkId, sumLinkId }) {
+  interface GetPayInsertSerialOperationDataOptions {
+    payLinkId: number;
+    sumLinkId: number
+  }
+
+  async function getPayInsertSerialOperationData(options: GetPayInsertSerialOperationDataOptions) {
+    const { payLinkId, sumLinkId } = options;
     const payTypeLinkId = await deep.id(
       '@deep-foundation/payments-tinkoff-c2b',
       'Pay'
@@ -966,7 +1032,8 @@ async ({
     return notificationUrlLink.value.value;
   }
 
-  async function tryGetLink({ selectData, delayMs, attemptsCount }) {
+  async function tryGetLink(options: TryGetLinkOptions) {
+    const { selectData, delayMs, attemptsCount } = options;
     let resultLink;
     for (let i = 0; i < attemptsCount; i++) {
       const {
@@ -983,4 +1050,10 @@ async ({
     }
     return { link: resultLink };
   }
+
+  interface TryGetLinkOptions { 
+    selectData: BoolExpLink;
+    delayMs: number;
+    attemptsCount: number;
+   }
 };
